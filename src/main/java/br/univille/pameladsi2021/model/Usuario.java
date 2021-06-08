@@ -12,7 +12,15 @@ public class Usuario {
     private long id;
     private String usuario;
     private String senha;
+    private Papel papel;
+    
 
+    public Papel getPapel() {
+        return papel;
+    }
+    public void setPapel(Papel papel) {
+        this.papel = papel;
+    }
     public long getId() {
         return id;
     }
@@ -33,4 +41,8 @@ public class Usuario {
     }
 
     
+}
+enum Papel {
+    ADMINISTRADOR,
+    ALMOXERIFE;
 }
