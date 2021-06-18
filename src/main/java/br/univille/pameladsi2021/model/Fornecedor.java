@@ -11,7 +11,7 @@ public class Fornecedor {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     private String nome;
-    private String endereço;
+    private String endereco;
     private String email;
     private int telefone;
     private String desprod;
@@ -29,11 +29,11 @@ public class Fornecedor {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public String getEndereço() {
-        return endereço;
+    public String getEndereco() {
+        return endereco;
     }
-    public void setEndereço(String endereço) {
-        this.endereço = endereço;
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
     }
     public String getEmail() {
         return email;
@@ -56,3 +56,4 @@ public class Fornecedor {
 
     
 }
+

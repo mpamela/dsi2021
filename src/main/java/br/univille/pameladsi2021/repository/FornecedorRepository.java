@@ -9,7 +9,7 @@ import br.univille.pameladsi2021.model.Fornecedor;
 
 @Repository
 public interface FornecedorRepository extends JpaRepository<Fornecedor,Long>{
-    List<Fornecedor> findByContains(String nome);
+    List<Fornecedor> findByNomeContains(String nome);
     
 }
 
