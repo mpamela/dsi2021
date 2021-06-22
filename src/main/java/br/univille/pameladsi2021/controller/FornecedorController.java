@@ -6,6 +6,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -27,6 +29,17 @@ public class FornecedorController {
       
 
     }
-    
+    @GetMapping("/novo")
+    public ModelAndView novo(@ModelAttribute Fornecedor forncedor){
+        return new ModelAndView("fornecedor/form");
+
+    }
+    @PostMapping(params = "form")
+    public ModelAndView save(Fornecedor forncedor){
+        System.out.println(forncedor.getNome());
+        return new ModelAndView("forncedor/form");
+    }
 }
+
+
 
