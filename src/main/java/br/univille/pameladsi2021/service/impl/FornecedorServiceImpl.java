@@ -18,5 +18,10 @@ public class FornecedorServiceImpl implements FornecedorService {
     public List<Fornecedor> getAll() {
         return repository.findAll();
     }
+    @Override
+    public void save(Fornecedor fornecedor) {
+        repository.save(fornecedor);
+        
+    }
     
 }

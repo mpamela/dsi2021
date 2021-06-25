@@ -7,5 +7,6 @@ import br.univille.pameladsi2021.model.Fornecedor;
 @Service
 public interface FornecedorService {
     public List<Fornecedor> getAll();
+    public void save(Fornecedor fornecedor);
     
 }

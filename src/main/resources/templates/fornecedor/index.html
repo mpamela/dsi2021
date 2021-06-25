@@ -6,7 +6,8 @@
     <body>
         <div class="container">
             <nav th:replace="layout :: menu">(menu)</nav>
-            <a href="/novo">Novo</a>
+            <a th:href="@{/fornecedor/novo}" class="btn btn-primary">Novo Fornecedor</a>
+
 
 
             <table class="table">
@@ -14,12 +15,14 @@
                     <tr>
                         <th>Nome</th>
                         <th>Endereço</th>
+                        <th></th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr scope="row" th:each="umfornecedor : ${listaFornecedor}">
                         <td th:text="${umfornecedor.nome}"></td>
                         <td th:text="${umfornecedor.endereco}"></td>
+                        <th><a th:href="@{'/fornecedor/alterar/'+${umfornecedor.id}}"class="btn btn-secondary">Alterar</a></th>
                     </tr>
                 </tbody>
             </table>
@@ -27,5 +30,7 @@
         <div th:include="layout :: footer">(footer)</div>
     </body>
 </html> 
+
+
 
 
