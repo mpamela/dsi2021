@@ -10,7 +10,7 @@
 
 
 
-            <table class="table">
+            <table class="table" id="fornecedores">
                 <thead>
                     <tr>
                         <th>Nome</th>
@@ -22,12 +22,33 @@
                     <tr scope="row" th:each="umfornecedor : ${listaFornecedor}">
                         <td th:text="${umfornecedor.nome}"></td>
                         <td th:text="${umfornecedor.endereco}"></td>
-                        <th><a th:href="@{'/fornecedor/alterar/'+${umfornecedor.id}}"class="btn btn-secondary">Alterar</a></th>
+                        <td>
+                            <a th:href="@{'/fornecedor/alterar/'+${umfornecedor.id}}"class="btn btn-secondary">Alterar</a>
+                            <button class="btn btn-danger js-delete"
+                                    th:data-id="${umfornecedor.id}">
+
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                Excluir
+                            </button>
+                                
+                        </td>
                     </tr>
                 </tbody>
             </table>
         </div>
         <div th:include="layout :: footer">(footer)</div>
+        <script type ="text/javascript">
+            $(document).ready(function(){
+                $("#fornecedores").on('click',".js-delete",function(){
+                    bootbox.confirm("Confirmar a exclusão do registro?",function(result){
+                        console.log(result);
+
+                    });
+                });
+                
+            });
+            
+        </script>
     </body>
 </html> 
 
