@@ -15,6 +15,10 @@
                     <tr>
                         <th>Nome</th>
                         <th>Endereço</th>
+                        <th>E-mail</th>
+                        <th>Telefone</th>
+                        <th>Descrição Produto</th>
+
                         <th></th>
                     </tr>
                 </thead>
@@ -22,6 +26,10 @@
                     <tr scope="row" th:each="umfornecedor : ${listaFornecedor}">
                         <td th:text="${umfornecedor.nome}"></td>
                         <td th:text="${umfornecedor.endereco}"></td>
+                        <td th:text="${umfornecedor.email}"></td>
+                        <td th:text="${umfornecedor.telefone}"></td>
+                        <td th:text="${umfornecedor.desprod}"></td>
+
                         <td>
                             <a th:href="@{'/fornecedor/alterar/'+${umfornecedor.id}}"class="btn btn-secondary">Alterar</a>
                             <button class="btn btn-danger js-delete"
