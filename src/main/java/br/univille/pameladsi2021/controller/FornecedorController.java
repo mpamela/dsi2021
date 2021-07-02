@@ -15,6 +15,8 @@ import org.springframework.web.servlet.ModelAndView;
 
 import br.univille.pameladsi2021.model.Fornecedor;
 import br.univille.pameladsi2021.service.FornecedorService;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @Controller
@@ -47,6 +49,12 @@ public class FornecedorController {
         return new ModelAndView("/fornecedor/form","fornecedor",fornecedor);
 
     }
+    @GetMapping("/delete/{id}")
+    public ModelAndView delete(@PathVariable("id") Fornecedor fornecedor){
+        service.delete(fornecedor);
+        return new ModelAndView("redirect:/fornecedor");
+    }
+    
 }
 
 

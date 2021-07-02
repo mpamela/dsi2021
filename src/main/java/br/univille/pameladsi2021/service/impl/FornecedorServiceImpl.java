@@ -23,5 +23,10 @@ public class FornecedorServiceImpl implements FornecedorService {
         repository.save(fornecedor);
         
     }
+    @Override
+    public void delete(Fornecedor fornecedor){
+        repository.delete(fornecedor);
+    }
     
 }
+

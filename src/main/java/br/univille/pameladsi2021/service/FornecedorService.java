@@ -8,5 +8,7 @@ import br.univille.pameladsi2021.model.Fornecedor;
 public interface FornecedorService {
     public List<Fornecedor> getAll();
     public void save(Fornecedor fornecedor);
+    public void delete(Fornecedor fornecedor);
+
     
 }

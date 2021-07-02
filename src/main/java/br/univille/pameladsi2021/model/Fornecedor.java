@@ -13,7 +13,7 @@ public class Fornecedor {
     private String nome;
     private String endereco;
     private String email;
-    private int telefone;
+    private String telefone;
     private String desprod;
 
     
@@ -41,10 +41,10 @@ public class Fornecedor {
     public void setEmail(String email) {
         this.email = email;
     }
-    public int getTelefone() {
+    public String getTelefone() {
         return telefone;
     }
-    public void setTelefone(int telefone) {
+    public void setTelefone(String telefone) {
         this.telefone = telefone;
     }
     public String getDesprod() {

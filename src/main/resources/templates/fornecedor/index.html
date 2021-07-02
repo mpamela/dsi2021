@@ -48,8 +48,18 @@
         <script type ="text/javascript">
             $(document).ready(function(){
                 $("#fornecedores").on('click',".js-delete",function(){
+                    let button = $(this);
                     bootbox.confirm("Confirmar a exclusão do registro?",function(result){
-                        console.log(result);
+                        if(result){
+                            $.ajax({
+                                url : "/fornecedor/delete/" + button.attr("data-id"),
+                                method: "GET", 
+                                success : function(){
+                                    window.location.href = "/fornecedor/";
+
+                                }
+                            });
+                        }
 
                     });
                 });
