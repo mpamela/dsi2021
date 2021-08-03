@@ -1,20 +1,27 @@
 package br.univille.pameladsi2021.model;
 
+import java.util.Date;
+
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 
 @Entity
 public class Mercadoria {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    private long id;
     private int codigo;
     private String nome;
-    private int data;
-    private int valuni;
+    @Temporal(TemporalType.DATE)
+    private Date data;
+    private float valuni;
     private int quantmin;
     private int quantmax;
 
@@ -23,6 +30,12 @@ public class Mercadoria {
     
 
     
+    public long getId() {
+        return id;
+    }
+    public void setId(long id) {
+        this.id = id;
+    }
     public Fornecedor getFornecedor() {
         return fornecedor;
     }
@@ -41,16 +54,16 @@ public class Mercadoria {
     public void setNome(String nome) {
         this.nome = nome;
     }
-    public int getData() {
+    public Date getData() {
         return data;
     }
-    public void setData(int data) {
+    public void setData(Date data) {
         this.data = data;
     }
-    public int getValuni() {
+    public float getValuni() {
         return valuni;
     }
-    public void setValuni(int valuni) {
+    public void setValuni(float valuni) {
         this.valuni = valuni;
     }
     

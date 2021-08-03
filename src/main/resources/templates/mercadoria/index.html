@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        <div class="container">
+            <nav th:replace="layout :: menu">(menu)</nav>
+            <a th:href="@{/mercadoria/novo}" class="btn btn-primary">Nova Mercadoria</a>
+
+        
+            <table class="table" id="mercadorias">
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Nome</th>
+                        <th>Data</th>
+                        <th>Valor Unitário</th>
+                        <th>Quantidade Minima</th>
+                        <th>Quantidade Máxima</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="row" th:each="ummercadoria : ${listaMercadoria}">
+                        <td th:text="${ummercadoria.codigo}"></td>
+                        <td th:text="${ummercadoria.nome}"></td>
+                        <td th:text="${ummercadoria.data}"></td>
+                        <td th:text="${ummercadoria.valuni}"></td>
+                        <td th:text="${ummercadoria.quantmin}"></td>
+                        <td th:text="${ummercadoria.quantmax}"></td>
+
+                        <td>
+                            <a th:href="@{'/mercadoria/alterar/'+${ummercadoria.id}}"class="btn btn-secondary">Alterar</a>
+                            <button class="btn btn-danger js-delete"
+                                    th:data-id="${ummercadoria.id}">
+
+                                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                                Excluir
+                            </button>
+                                
+                        </td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:include="layout :: footer">(footer)</div>
+        <script type ="text/javascript">
+            $(document).ready(function(){
+                $("#mercadorias").on('click',".js-delete",function(){
+                    let button = $(this);
+                    bootbox.confirm("Confirmar a exclusão do registro?",function(result){
+                        if(result){
+                            $.ajax({
+                                url : "/mercadoria/delete/" + button.attr("data-id"),
+                                method: "GET", 
+                                success : function(){
+                                    window.location.href = "/mercadoria/";
+
+                                }
+                            });
+                        }
+
+                    });
+                });
+                
+            });
+            
+        </script>
+    </body>
+</html> 
+
+
+
+
