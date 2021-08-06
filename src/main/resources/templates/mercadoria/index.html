@@ -26,7 +26,7 @@
                     <tr scope="row" th:each="ummercadoria : ${listaMercadoria}">
                         <td th:text="${ummercadoria.codigo}"></td>
                         <td th:text="${ummercadoria.nome}"></td>
-                        <td th:text="${ummercadoria.data}"></td>
+                        <td th:text="${#dates.format(ummercadoria.data, 'dd/MM/yyyy')}"></td>
                         <td th:text="${ummercadoria.valuni}"></td>
                         <td th:text="${ummercadoria.quantmin}"></td>
                         <td th:text="${ummercadoria.quantmax}"></td>
