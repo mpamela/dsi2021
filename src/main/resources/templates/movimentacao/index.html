@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout">
+
+    <head th:include="layout :: htmlhead"></head>
+    <body>
+        <div class="container">
+            <nav th:replace="layout :: menu">(menu)</nav>
+
+        
+            <table class="table" id="mercadorias">
+                <thead>
+                    <tr>
+                        <th>Nome mercadoria</th>
+                        <th>Quantidade</th>
+                        <th>Data</th>
+                        <th>Entrada</th>
+                        <th>Saída</th>
+
+                        <th></th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr scope="row" th:each="ummovimentacao : ${listaMovimentacao}">
+                        <td th:text="${ummovimentacao.mercadoria.nome}"></td>
+                        <td th:text="${ummovimentacao.quant}"></td>
+                        <td th:text="${#dates.format(ummovimentacao.data, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${ummovimentacao.entrada}"></td>
+                        <td th:text="${ummovimentacao.saida}"></td>
+
+                        
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+        <div th:include="layout :: footer">(footer)</div>
+        
+    </body>
+</html> 
+
+
+
+
