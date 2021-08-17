@@ -34,10 +34,20 @@ public class MovimentacaoController {
         List<Movimentacao> listaMovimentacao = service.getAll();
         return new ModelAndView("movimentacao/index","listaMovimentacao", listaMovimentacao);
       
+    }
+    @GetMapping("/novo")
+    public ModelAndView novo(@ModelAttribute Movimentacao movimentacao){
+        return new ModelAndView("movimentacao/form");
 
     }
-    
+    @PostMapping(params = "form")
+    public ModelAndView save(Movimentacao movimentacao){
+        service.save(movimentacao);
+        return new ModelAndView("redirect:/movimentacao");
+    }
+   
     
 }
+
 
 

@@ -25,9 +25,14 @@ public class Movimentacao {
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data;
-    private boolean entrada;
-    private boolean saida;
+    private boolean tipo;
 
+    public boolean isTipo() {
+        return tipo;
+    }
+    public void setTipo(boolean tipo) {
+        this.tipo = tipo;
+    }
     public long getId() {
         return id;
     }
@@ -52,18 +57,8 @@ public class Movimentacao {
     public void setData(Date data) {
         this.data = data;
     }
-    public boolean isEntrada() {
-        return entrada;
-    }
-    public void setEntrada(boolean entrada) {
-        this.entrada = entrada;
-    }
-    public boolean isSaida() {
-        return saida;
-    }
-    public void setSaida(boolean saida) {
-        this.saida = saida;
-    }
+    
+    
 
     
 }

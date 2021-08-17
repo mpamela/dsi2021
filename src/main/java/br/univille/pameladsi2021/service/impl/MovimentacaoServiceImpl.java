@@ -19,5 +19,9 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
         return repository.findAll();
 
     }
+    @Override
+    public void save(Movimentacao movimentacao) {
+        
+    }
     
 }

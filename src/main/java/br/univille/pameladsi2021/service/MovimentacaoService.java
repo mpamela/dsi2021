@@ -9,6 +9,7 @@ import br.univille.pameladsi2021.model.Movimentacao;
 @Service
 public interface MovimentacaoService {
     public List<Movimentacao> getAll();
+    public void save(Movimentacao movimentacao);
 
     
 }
