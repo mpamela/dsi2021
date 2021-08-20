@@ -20,7 +20,7 @@ public class Movimentacao {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
     @ManyToOne(cascade = CascadeType.MERGE)
-    private Mercadoria mercadoria;
+    private Mercadoria mercadoria = new Mercadoria();
     private int quant;
     @Temporal(TemporalType.DATE)
     @DateTimeFormat(pattern = "yyyy-MM-dd")

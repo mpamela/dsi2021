@@ -10,7 +10,19 @@
             <div class="border border-dark">
                 <form th:action="@{/movimentacao/(form)}" th:object="${movimentacao}" method="POST">
                     <input type="hidden" th:field="*{id}">
-                   
+                    <div class="form-group">
+                        <div class="row">
+                            <div class="col-6">
+                                <label for="slcmercadoria">Mercadorias:</label>
+                                <select class="form-control" id="slcmercadoria" th:field="*{mercadoria}">
+                                    <option th:value="${umaMercadoria.id}" 
+                                            th:text="${umaMercadoria.nome}"
+                                            th:each="umaMercadoria : ${listaMercadoria}">
+                                    </option>
+                                </select>
+                            </div>
+                        </div>
+                    </div>
                     <div class="form-group">
                         <div class="row">
                             <div class="col-6">

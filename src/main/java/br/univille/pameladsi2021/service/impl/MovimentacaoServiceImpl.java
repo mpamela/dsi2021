@@ -18,10 +18,15 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
     public List<Movimentacao> getAll() {
         return repository.findAll();
 
+
+        
     }
     @Override
     public void save(Movimentacao movimentacao) {
-        
+        // se tipo da movimentacao for saida
+        //e a quantidade for positiva
+        // entao multiplica a quantidade por -1
+        repository.save(movimentacao);
     }
     
 }
