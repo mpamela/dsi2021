@@ -26,6 +26,11 @@ public class MovimentacaoServiceImpl implements MovimentacaoService{
         // se tipo da movimentacao for saida
         //e a quantidade for positiva
         // entao multiplica a quantidade por -1
+        
+        if (movimentacao.isTipo()  == false && movimentacao.getQuant() > 0){
+            movimentacao.setQuant(movimentacao.getQuant() * -1);
+        }
+
         repository.save(movimentacao);
     }
     
