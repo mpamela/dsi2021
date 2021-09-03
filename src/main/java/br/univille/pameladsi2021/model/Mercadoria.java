@@ -27,11 +27,18 @@ public class Mercadoria {
     private float valuni;
     private int quantmin;
     private int quantmax;
+    private String foto;
+
 
     @ManyToOne(cascade = {CascadeType.REFRESH, CascadeType.MERGE})
     private Fornecedor fornecedor;
     
-
+    public String getFoto() {
+        return foto;
+    }
+    public void setFoto(String foto) {
+        this.foto = foto;
+    }
     
     public long getId() {
         return id;
