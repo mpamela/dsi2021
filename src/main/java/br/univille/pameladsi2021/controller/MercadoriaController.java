@@ -69,7 +69,7 @@ public class MercadoriaController {
             byte[] bytes = new byte[(int) file.length()];
             DataInputStream dis = new DataInputStream(new FileInputStream(file));
             dis.readFully(bytes);
-            return bytes;
+            return bytes;   
         }catch (Exception e){
             return new byte[0];
         }
