@@ -52,14 +52,13 @@ public class MercadoriaController {
 
     }
     @PostMapping(params = "form")
-    public ModelAndView save(Mercadoria mercadoria){
-        service.save(mercadoria);
-        return new ModelAndView("redirect:/mercadoria");
     public ModelAndView save(Mercadoria mercadoria, @RequestParam("file") MultipartFile file){
         if(file.getSize() != 0){
-                String caminho = storageFilesService.save(file);
-                mercadoria.setFoto(caminho);
+            String caminho = storageFilesService.save(file);
+            mercadoria.setFoto(caminho);
         }
+        service.save(mercadoria);
+        return new ModelAndView("redirect:/mercadoria");        
     }
 
     @GetMapping(value = "/image/{id}")

@@ -38,7 +38,7 @@ public class FornecedorControllerAPI {
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
     }
-    @PostMapping
+    @PostMapping("/list")
     public ResponseEntity<List<Fornecedor>> insertList(@RequestBody List<Fornecedor> listaFornecedores){
         for(Fornecedor umFornecedor: listaFornecedores){
             umFornecedor.setId(0);
