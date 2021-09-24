@@ -27,6 +27,10 @@ public class MercadoriaServiceImpl implements MercadoriaService {
     public void delete(Mercadoria mercadoria){
         repository.delete(mercadoria);
     }
+    @Override
+    public int getTotalizador(Mercadoria mercadoria) {
+        return repository.getTotalizador(mercadoria);
+    }
     
 }
 

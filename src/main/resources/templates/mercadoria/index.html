@@ -18,23 +18,24 @@
                         <th>Valor Unitário</th>
                         <th>Quantidade Minima</th>
                         <th>Quantidade Máxima</th>
-
+                        <th>Quantidade TOTAL</th>
                         <th></th>
                     </tr>
                 </thead>
                 <tbody>
-                    <tr scope="row" th:each="ummercadoria : ${listaMercadoria}">
-                        <td th:text="${ummercadoria.codigo}"></td>
-                        <td th:text="${ummercadoria.nome}"></td>
-                        <td th:text="${#dates.format(ummercadoria.data, 'dd/MM/yyyy')}"></td>
-                        <td th:text="${ummercadoria.valuni}"></td>
-                        <td th:text="${ummercadoria.quantmin}"></td>
-                        <td th:text="${ummercadoria.quantmax}"></td>
+                    <tr scope="row" th:each="ummercadoria : ${listaMercadoriaViewModel}">
+                        <td th:text="${ummercadoria.mercadoria.codigo}"></td>
+                        <td th:text="${ummercadoria.mercadoria.nome}"></td>
+                        <td th:text="${#dates.format(ummercadoria.mercadoria.data, 'dd/MM/yyyy')}"></td>
+                        <td th:text="${ummercadoria.mercadoria.valuni}"></td>
+                        <td th:text="${ummercadoria.mercadoria.quantmin}"></td>
+                        <td th:text="${ummercadoria.mercadoria.quantmax}"></td>
+                        <td th:text="${ummercadoria.quantidadeTotal}"></td>
 
                         <td>
-                            <a th:href="@{'/mercadoria/alterar/'+${ummercadoria.id}}"class="btn btn-secondary">Alterar</a>
+                            <a th:href="@{'/mercadoria/alterar/'+${ummercadoria.mercadoria.id}}"class="btn btn-secondary">Alterar</a>
                             <button class="btn btn-danger js-delete"
-                                    th:data-id="${ummercadoria.id}">
+                                    th:data-id="${ummercadoria.mercadoria.id}">
 
                                 <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
                                 Excluir

@@ -5,7 +5,7 @@ import java.io.File;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-
+import java.util.ArrayList;
 import java.util.List;
 
 import org.hibernate.service.spi.ServiceException;
@@ -25,6 +25,7 @@ import br.univille.pameladsi2021.model.Mercadoria;
 import br.univille.pameladsi2021.service.MercadoriaService;
 import org.springframework.web.bind.annotation.RequestParam;
 import br.univille.pameladsi2021.service.StorageFilesService;
+import br.univille.pameladsi2021.viewmodel.MercadoriaViewModel;
 
 
 
@@ -42,7 +43,14 @@ public class MercadoriaController {
     @GetMapping
     public ModelAndView index(){
         List<Mercadoria> listaMercadoria = service.getAll();
-        return new ModelAndView("mercadoria/index","listaMercadoria", listaMercadoria);
+        List<MercadoriaViewModel> listaMercadoriaViewModel = new ArrayList<>();
+
+        for(Mercadoria umaMercadoria:listaMercadoria){
+            int total = service.getTotalizador(umaMercadoria);
+            listaMercadoriaViewModel.add(new MercadoriaViewModel(umaMercadoria, total));
+        }
+
+        return new ModelAndView("mercadoria/index","listaMercadoriaViewModel", listaMercadoriaViewModel);
       
 
     }

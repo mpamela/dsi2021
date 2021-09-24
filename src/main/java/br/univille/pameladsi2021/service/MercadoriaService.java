@@ -9,7 +9,7 @@ public interface MercadoriaService {
     public List<Mercadoria> getAll();
     public void save(Mercadoria mercadoria);
     public void delete(Mercadoria mercadoria);
-
+    public int getTotalizador(Mercadoria mercadoria);
     
 }
 
