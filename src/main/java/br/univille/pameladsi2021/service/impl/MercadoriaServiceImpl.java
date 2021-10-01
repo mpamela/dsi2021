@@ -29,7 +29,14 @@ public class MercadoriaServiceImpl implements MercadoriaService {
     }
     @Override
     public int getTotalizador(Mercadoria mercadoria) {
+        try{
+
+        
         return repository.getTotalizador(mercadoria);
+        }catch(Exception e){
+            return 0;
+
+        }
     }
     
 }
