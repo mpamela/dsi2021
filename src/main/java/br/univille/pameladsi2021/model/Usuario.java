@@ -4,6 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import java.util.List;
+import java.util.ArrayList;
+import javax.persistence.CascadeType;
+import javax.persistence.FetchType;
+import javax.persistence.ManyToMany;
+import java.util.Collection;
+
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+
 
 @Entity
 public class Usuario {
@@ -13,6 +23,27 @@ public class Usuario {
     private String usuario;
     private String senha;
     private Papel papel;
+
+    @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.EAGER)
+    private List<Papel> listaPapeis = new ArrayList<Papel>();
+
+    public Collection<? extends GrantedAuthority> getAuthorities(){
+        List<Papel> papeis = getListaPapeis();
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+        for(Papel papel : papeis){
+            authorities.add(new SimpleGrantedAuthority(papel.getDescricao()));
+        }
+        return authorities;
+    }
+
+    public List<Papel> getListaPapeis() {
+        return listaPapeis;
+    }
+    public void setListaPapeis(List<Papel> listaPapeis) {
+        this.listaPapeis = listaPapeis;
+    }
+
+    
     
 
     public Papel getPapel() {
@@ -42,7 +73,7 @@ public class Usuario {
 
     
 }
-enum Papel {
+/*public enum Papel {
     ADMINISTRADOR,
     ALMOXERIFE;
-}
+}*/

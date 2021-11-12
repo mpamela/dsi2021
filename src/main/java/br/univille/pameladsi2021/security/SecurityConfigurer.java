@@ -13,9 +13,12 @@ import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
+import org.springframework.security.config.annotation.method.configuration.EnableGlobalMethodSecurity;
+
 import br.univille.pameladsi2021.service.impl.MyUserDetailsServiceImpl;
 
 @EnableWebSecurity
+@EnableGlobalMethodSecurity(prePostEnabled=true)
 public class SecurityConfigurer extends WebSecurityConfigurerAdapter  {
     
     @Autowired
