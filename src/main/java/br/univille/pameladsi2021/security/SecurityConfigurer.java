@@ -36,9 +36,12 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter  {
             .and()
             .authorizeRequests().antMatchers("/fonte_dados/**").permitAll().and().headers().frameOptions().disable()
             .and()
-            .authorizeRequests().antMatchers("/**").authenticated().and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
+            .authorizeRequests().antMatchers("/**").authenticated()
+            .and().sessionManagement().sessionCreationPolicy(SessionCreationPolicy.ALWAYS)
             .and().formLogin().permitAll()
-            .defaultSuccessUrl("/", true).and().logout().permitAll();
+            .defaultSuccessUrl("/", true)
+            .and().logout().permitAll();
+            
             httpSecurity.addFilterBefore(jwtRequestFilter, UsernamePasswordAuthenticationFilter.class);
 
     }
@@ -47,7 +50,7 @@ public class SecurityConfigurer extends WebSecurityConfigurerAdapter  {
     protected AuthenticationManager authenticationManager() throws Exception{
         return super.authenticationManager();
     }
-
+    
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.userDetailsService(myUserDetailsService);
     }

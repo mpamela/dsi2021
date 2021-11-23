@@ -27,9 +27,9 @@ public class Startup {
 			papel.setDescricao("ADMIN");
 			papelRepository.save(papel);
 		}
-        if(papelRepository.findByDescricao("ATENDENTE") == null) {
+        if(papelRepository.findByDescricao("AUMOXERIFE") == null) {
 			Papel papel = new Papel();
-			papel.setDescricao("ATENDENTE");
+			papel.setDescricao("AUMOXERIFE");
 			papelRepository.save(papel);
 		}
         Usuario usuario = usuarioRepository.findByUsuario("admin");
@@ -49,7 +49,7 @@ public class Startup {
             usuario.setUsuario("zezinho");
             usuario.setSenha("zezinho");
         }
-        Papel papelAtendente = papelRepository.findByDescricao("ATENDENTE");
+        Papel papelAtendente = papelRepository.findByDescricao("AUMOXERIFE");
         if(usuario.getListaPapeis().size() == 0)
             usuario.getListaPapeis().add(papelAtendente);
         usuarioRepository.save(usuario);

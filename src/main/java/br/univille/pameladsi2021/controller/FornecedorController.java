@@ -40,7 +40,8 @@ public class FornecedorController {
 
     }
     @GetMapping("/novo")
-    @PreAuthorize("hasRole('ADMIN')")
+    //@PreAuthorize("hasAuthority('ADMIN')")
+
     public ModelAndView novo(@ModelAttribute Fornecedor fornecedor){
         return new ModelAndView("fornecedor/form");
 

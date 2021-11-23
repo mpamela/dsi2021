@@ -4,11 +4,16 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+
 import java.util.List;
 import java.util.ArrayList;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+
 import java.util.Collection;
 
 import org.springframework.security.core.GrantedAuthority;
@@ -22,7 +27,6 @@ public class Usuario {
     private long id;
     private String usuario;
     private String senha;
-    private Papel papel;
 
     @ManyToMany(cascade = {CascadeType.REFRESH, CascadeType.MERGE}, fetch = FetchType.EAGER)
     private List<Papel> listaPapeis = new ArrayList<Papel>();
@@ -44,14 +48,6 @@ public class Usuario {
     }
 
     
-    
-
-    public Papel getPapel() {
-        return papel;
-    }
-    public void setPapel(Papel papel) {
-        this.papel = papel;
-    }
     public long getId() {
         return id;
     }
